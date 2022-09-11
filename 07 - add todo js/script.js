@@ -1,6 +1,18 @@
 // Create an array of todo items
 const todos = []
 
+// Add event listener to the button
+document.querySelector('#todo-button').addEventListener('click', processNewTodo)
+
+// Process a new todo item
+function processNewTodo() {
+    const newTodo = document.querySelector('#todo-input').value
+    document.querySelector('#todo-input').value = ''
+    todos.push(newTodo)
+    displayTodos()
+}
+
+
 // Display the todo items
 function displayTodos() { 
     const ul = document.createElement('ul')
@@ -15,15 +27,3 @@ function displayTodos() {
     document.querySelector('#todo-list').innerHTML = ''
     document.querySelector('#todo-list').appendChild(ul)
 }
-
-// Process a new todo item
-function processNewTodo() {
-    // Get the new todo item from the text box
-    const newTodo = document.querySelector('#todo-input').value
-    document.querySelector('#todo-input').value = ''
-    todos.push(newTodo)
-    displayTodos()
-}
-
-// Add event listener to the button
-document.querySelector('#todo-button').addEventListener('click', processNewTodo)
