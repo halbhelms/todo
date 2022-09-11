@@ -12,7 +12,6 @@ function processNewTodo() {
     displayTodos()
 }
 
-
 // Display the todo items
 function displayTodos() { 
     const ul = document.createElement('ul')
