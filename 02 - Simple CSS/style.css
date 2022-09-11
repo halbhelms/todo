@@ -1,0 +1,15 @@
+html {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+main {
+    width: 600px;
+    margin-left: calc(50% - 300px);
+    /* margin-left: 50%; */
+    border: 1px solid grey;
+}
+
+li:hover {
+    color: red;
+    cursor: pointer;
+}
