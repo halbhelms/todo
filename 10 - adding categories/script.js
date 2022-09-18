@@ -1,8 +1,4 @@
-// Create an array of todo items
-const todos = []
-
-// Add event listener to the button
-document.querySelector('#todo-button').addEventListener('click', processNewTodo)
+// BEGIN FUNCTIONS
 
 // Create a random id
 function createRandomId() {
@@ -17,12 +13,16 @@ function processNewTodo() {
     newTodo.id = createRandomId()
     // add the task property, task, from the input
     newTodo.task = document.querySelector('#todo-input').value
+    // add the task property, category, from the select
+    newTodo.category = document.querySelector('#category-select').value
     // add the task property, completed (default to false)
     newTodo.completed = false
     // add the new todo to the todos array
     todos.push(newTodo)
-    // clear the input
+    // clear the text input
     document.querySelector('#todo-input').value = ''
+    // clear the category input
+    document.querySelector('#category-select').selectedIndex = 0
     // display the todos
     displayTodos()
 }
@@ -53,6 +53,12 @@ function displayTodos() {
         task.innerText = todo.task
         // append the task to the todoDiv
         todoDiv.appendChild(task)
+        // create category for each todo
+        const category = document.createElement('span')
+        // set the category innerText to the todo category property
+        category.innerText = `  : ${todo.category}`
+        // append the category to the todoDiv
+        todoDiv.appendChild(category)
         // append the todoDiv to the todoWrapper
         todoWrapper.appendChild(todoDiv)
     })
@@ -67,11 +73,22 @@ function toggleCompleted(event) {
     const foundTodo = todos.find(todo => todo.id === parseInt(event.target.id))
     // toggle the completed property
     foundTodo.completed = !foundTodo.completed
-    // update the class of the parent div
+    // update the class of the parent element
     if (foundTodo.completed) {
         event.target.parentElement.classList.add('completed')
     } else {   
         event.target.parentElement.classList.remove('completed')
     } 
-    console.log(todos)
 }
+
+// END FUNCTIONS
+
+// BEGIN MAIN
+
+// Create an array of todo items
+const todos = []
+
+// Add event listener to the button
+document.querySelector('#todo-button').addEventListener('click', processNewTodo)
+
+// END MAIN

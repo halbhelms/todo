@@ -1,8 +1,4 @@
-// Create an array of todo items
-const todos = []
-
-// Add event listener to the button
-document.querySelector('#todo-button').addEventListener('click', processNewTodo)
+// BEGIN FUNCTIONS
 
 // Create a random id
 function createRandomId() {
@@ -75,3 +71,15 @@ function toggleCompleted(event) {
     } 
     console.log(todos)
 }
+
+// END FUNCTIONS
+
+// BEGIN MAIN
+
+// Create an array of todo items
+const todos = []
+
+// Add event listener to the button
+document.querySelector('#todo-button').addEventListener('click', processNewTodo)
+
+// END MAIN
