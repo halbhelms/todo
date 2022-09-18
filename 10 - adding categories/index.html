@@ -9,10 +9,26 @@
 <body>
     <main>
         <h1>My ToDos</h1>
-        <p>This is my ToDo list</p>
+        <div id="display-options">
+            <div id="work" class="display-option">
+                <input type="checkbox" value="work" id="work" /><label for="work">Work</label>
+            </div>
+            <div id="personal" class="display-option">
+                <input type="checkbox" value="personal" id="personal" /><label for="personal">Personal</label>
+            </div>
+            <div id="home" class="display-option">
+                <input type="checkbox" value="home" id="home" /><label for="home">Home</label>
+            </div>
+        </div>
         <div id="new-todo">
             <input type="text" id="todo-input" placeholder="Add a new todo" 
             />  
+            <select id="category-select">
+                <option value="none">Select Category</option>
+                <option value="work">Work</option>
+                <option value="personal">Personal</option>
+                <option value="home">Home</option>
+            </select>
             <button id="todo-button">Add ToDo</input>
         </div>
         <div id="todo-list"></div>
