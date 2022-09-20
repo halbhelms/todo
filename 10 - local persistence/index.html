@@ -9,10 +9,15 @@
 <body>
     <main>
         <h1>My ToDos</h1>
-        <p>This is my ToDo list</p>
         <div id="new-todo">
             <input type="text" id="todo-input" placeholder="Add a new todo" 
             />  
+            <select id="category-select">
+                <option value="none">Select Category</option>
+                <option value="work">Work</option>
+                <option value="personal">Personal</option>
+                <option value="home">Home</option>
+            </select>
             <button id="todo-button">Add ToDo</input>
         </div>
         <div id="todo-list"></div>
