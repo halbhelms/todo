@@ -9,6 +9,14 @@
 <body>
     <main>
         <h1>My ToDos</h1>
+
+        <div id="todos-by-category">
+            <button id="work" class="category-select-button">Work</button>
+            <button id="personal" class="category-select-button">Personal</button>
+            <button id="home" class="category-select-button">Home</button>
+            <button id="all" class="category-all-button">All</button>
+        </div>
+        
         <div id="new-todo">
             <input type="text" id="todo-input" placeholder="Add a new todo" 
             />  
@@ -18,8 +26,8 @@
                 <option value="personal">Personal</option>
                 <option value="home">Home</option>
             </select>
-            <button id="todo-button">Add ToDo</input>
-        </div>
+            <button id="todo-button">Add ToDo</button>
+</div>
         <div id="todo-list"></div>
     </main>
     <script src="./script.js"></script>

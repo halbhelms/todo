@@ -103,10 +103,13 @@ function toggleCompleted(event) {
 
 // BEGIN MAIN
 
-// Retrieve the todos array from local storage
-retrieveTodos()
-
 // Add event listener to the button
 document.querySelector('#todo-button').addEventListener('click', processNewTodo)
+
+// Create todos array
+let todos = []
+
+// Retrieve the todos array from local storage
+retrieveTodos()
 
 // END MAIN

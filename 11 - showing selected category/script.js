@@ -16,9 +16,10 @@ function retrieveTodos() {
     displayTodos()
 }
 
-// Create a random id
-function createRandomId() {
-    return Math.floor(Math.random() * 100000)
+// Create an incrementing id
+const id = 0
+function getId() {
+    return id++
 }
 
 // Process a new todo item
@@ -26,7 +27,7 @@ function processNewTodo() {
     // create a new todo object
     const newTodo = {}
     // add the task property, id
-    newTodo.id = createRandomId()
+    newTodo.id = getId()
     // add the task property, task, from the input
     newTodo.task = document.querySelector('#todo-input').value
     // add the task property, category, from the select
@@ -46,11 +47,11 @@ function processNewTodo() {
 }
 
 // Display the todo items
-function displayTodos() { 
+function displayTodos(selectedTodos=todos) { 
     // create a wrapper div for todos
     const todoWrapper = document.createElement('div')
-    // loop through the todos array
-    todos.forEach(todo => {
+    // loop through the selectedTodos
+    selectedTodos.forEach(todo => {
         // create a div for each todo
         const todoDiv = document.createElement('div')
         // create checkbox for each todo
@@ -99,14 +100,46 @@ function toggleCompleted(event) {
     } 
 }
 
+function selectTodosForCategory(event) {
+    // find the category that was selected
+    const selectedCategory = event.target.id
+    // filter the todos array based on the selected category
+    const filteredTodos = todos.filter(todo => todo.category === selectedCategory)
+    // set selectedTodos to the filtered todos
+    selectedTodos = filteredTodos
+    displayTodos(filteredTodos)
+}
+
+function allTodosForCategory(event) {
+    displayTodos()
+}
+
 // END FUNCTIONS
 
 // BEGIN MAIN
 
+
+// Add event listener to the Add Todo button
+document.querySelector('#todo-button').addEventListener('click', processNewTodo)
+
+// Add event listener to the individual category buttons
+document
+    .querySelectorAll('.category-select-button')
+    .forEach(button => {
+        button.addEventListener('click', selectTodosForCategory)
+    })
+
+// Add event listener to the all category button
+document
+    .querySelectorAll('.category-all-button')
+    .forEach(button => {
+        button.addEventListener('click', allTodosForCategory)
+    })
+
+// Create todos array
+let todos = []
+
 // Retrieve the todos array from local storage
 retrieveTodos()
-
-// Add event listener to the button
-document.querySelector('#todo-button').addEventListener('click', processNewTodo)
 
 // END MAIN
