@@ -105,8 +105,7 @@ function selectTodosForCategory(event) {
     const selectedCategory = event.target.id
     // filter the todos array based on the selected category
     const filteredTodos = todos.filter(todo => todo.category === selectedCategory)
-    // set selectedTodos to the filtered todos
-    selectedTodos = filteredTodos
+    // display the filtered todos
     displayTodos(filteredTodos)
 }
 
