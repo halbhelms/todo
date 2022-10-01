@@ -1,8 +1,8 @@
 // VARIABLES
 // ----------------------------------
-let todos = []
-let selectedCategory = 0
-let nextId = 0
+let todos               = []
+let selectedCategory    = 0
+let nextId              = 0
 
 // FUNCTIONS
 // ----------------------------------
